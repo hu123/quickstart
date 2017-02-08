@@ -1,22 +1,25 @@
-import {Component, NgModule, OnInit} from '@angular/core';
-import {MyService} from './myservice';
+import { Component } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  template: ` <p *ngIf="value.length == 11">value的值是helloworld就显示aaaaa</p>`
+  template: `
+    <h1>{{title}}</h1>
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  styleUrls: ['app.component.css'],
 })
-@NgModule()
-export class AppComponent implements OnInit {
-  constructor(private myService: MyService) {
-  }
-  value: string = "helloworld2";
-
-
-  gotoDetail(): void {
-    console.log("这就成功了????")
-  }
-
-  ngOnInit(): void {
-    this.myService.method();
-  }
+export class AppComponent {
+  title = 'Tour of Heroes';
 }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
