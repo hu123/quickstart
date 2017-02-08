@@ -1,7 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Hello Angular</h1>`
+    template: ` <button (click)="gotoDetail()">View Details</button>`
 })
-export class AppComponent { }
+@NgMogitdule()
+export class AppComponent {
+
+  gotoDetail():void{
+    console.log("这就成功了????")
+  }
+
+}
