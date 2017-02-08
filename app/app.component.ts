@@ -4,7 +4,7 @@ import {Component, NgModule} from '@angular/core';
     selector: 'my-app',
     template: ` <button (click)="gotoDetail()">View Details</button>`
 })
-@NgMogitdule()
+@NgModule()
 export class AppComponent {
 
   gotoDetail():void{
