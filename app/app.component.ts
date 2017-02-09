@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
       <!--<a >我就想呵呵</a>-->
     </nav>
     <router-outlet></router-outlet>
+    
   `,
   styleUrls: ['app.component.css'],
 })

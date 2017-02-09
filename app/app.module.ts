@@ -1,14 +1,14 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-
-import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroService }          from './hero.service';
-
-import { AppRoutingModule }     from './app-routing.module';
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {AppComponent} from "./app.component";
+import {DashboardComponent} from "./dashboard.component";
+import {HeroDetailComponent} from "./hero-detail.component";
+import {HeroesComponent} from "./heroes.component";
+import {HeroService} from "./hero.service";
+import {AppRoutingModule} from "./app-routing.module";
+import {OutlineComponent} from "./outline.component";
+import {ContentCompoennt} from "./content.component";
 
 @NgModule({
   imports: [
@@ -20,7 +20,9 @@ import { AppRoutingModule }     from './app-routing.module';
     AppComponent,
     DashboardComponent,
     HeroDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    OutlineComponent,
+    ContentCompoennt
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]
