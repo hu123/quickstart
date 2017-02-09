@@ -8,13 +8,14 @@ import { Component } from '@angular/core';
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      <!--<a >我就想呵呵</a>-->
     </nav>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['app.component.css'],
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'ng2路由功能demo';
 }
 
 
