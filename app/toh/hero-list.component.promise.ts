@@ -1,13 +1,13 @@
 // Promise Version
-import { Component, OnInit } from '@angular/core';
-import { Hero }              from './hero';
-import { HeroService }       from './hero.service.promise';
+import {Component, OnInit} from '@angular/core';
+import {Hero}              from './hero';
+import {HeroService}       from './hero.service.promise';
 
 @Component({
   selector: 'hero-list-promise',
   moduleId: module.id,
   templateUrl: 'hero-list.component.html',
-  providers: [ HeroService ],
+  providers: [HeroService],
   styles: ['.error {color:red;}']
 })
 export class HeroListPromiseComponent implements OnInit {
@@ -15,29 +15,34 @@ export class HeroListPromiseComponent implements OnInit {
   heroes: Hero[];
   mode = 'Promise';
 
-  constructor (private heroService: HeroService) {}
+  constructor(private heroService: HeroService) {
+  }
 
-  ngOnInit() { this.getHeroes(); }
+  ngOnInit() {
+    this.getHeroes();
+  }
 
   getHeroes() {
     this.heroService.getHeroes()
-                     .then(
-                       heroes => this.heroes = heroes,
-                       error =>  this.errorMessage = <any>error);
+      .then(
+        heroes => this.heroes = heroes,
+        error => this.errorMessage = <any>error);
   }
 
-  addHero (name: string) {
-    if (!name) { return; }
+  addHero(name: string) {
+    if (!name) {
+      return;
+    }
     this.heroService.addHero(name)
-                     .then(
-                       hero  => this.heroes.push(hero),
-                       error =>  this.errorMessage = <any>error);
+      .then(
+        hero => this.heroes.push(hero),
+        error => this.errorMessage = <any>error);
   }
 }
 
 
 /*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

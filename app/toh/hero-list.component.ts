@@ -1,13 +1,13 @@
 // Observable Version
-import { Component, OnInit } from '@angular/core';
-import { Hero }              from './hero';
-import { HeroService }       from './hero.service';
+import {Component, OnInit} from '@angular/core';
+import {Hero}              from './hero';
+import {HeroService}       from './hero.service';
 
 @Component({
   moduleId: module.id,
   selector: 'hero-list',
   templateUrl: 'hero-list.component.html',
-  providers: [ HeroService ],
+  providers: [HeroService],
   styles: ['.error {color:red;}']
 })
 export class HeroListComponent implements OnInit {
@@ -15,29 +15,34 @@ export class HeroListComponent implements OnInit {
   heroes: Hero[];
   mode = 'Observable';
 
-  constructor (private heroService: HeroService) {}
+  constructor(private heroService: HeroService) {
+  }
 
-  ngOnInit() { this.getHeroes(); }
+  ngOnInit() {
+    // this.getHeroes();
+  }
 
   getHeroes() {
     this.heroService.getHeroes()
-                     .subscribe(
-                       heroes => this.heroes = heroes,
-                       error =>  this.errorMessage = <any>error);
+      .subscribe(
+        heroes => this.heroes = heroes,
+        error => this.errorMessage = <any>error);
   }
 
-  addHero (name: string) {
-    if (!name) { return; }
+  addHero(name: string) {
+    if (!name) {
+      return;
+    }
     this.heroService.addHero(name)
-                     .subscribe(
-                       hero  => this.heroes.push(hero),
-                       error =>  this.errorMessage = <any>error);
+      .subscribe(
+        hero => this.heroes.push(hero),
+        error => this.errorMessage = <any>error);
   }
 }
 
 
 /*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

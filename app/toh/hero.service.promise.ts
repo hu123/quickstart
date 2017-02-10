@@ -7,7 +7,7 @@ import { Hero }           from './hero';
 @Injectable()
 export class HeroService {
   // URL to web api
-  private heroesUrl = 'app/heroes';
+  private heroesUrl = 'http://localhost:8080/hero';
 
   constructor (private http: Http) {}
 
@@ -30,10 +30,13 @@ export class HeroService {
 
   private extractData(res: Response) {
     let body = res.json();
+    //将拿到的hero数据进行打印....
+    console.log(body);
     return body.data || { };
   }
 
   private handleError (error: Response | any) {
+    console.log("有错么???/");
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {

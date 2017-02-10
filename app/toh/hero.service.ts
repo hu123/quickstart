@@ -8,11 +8,12 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'app/heroes';  // URL to web API
+  private heroesUrl = 'localhost:8080/hero';  // URL to web API
 
   constructor (private http: Http) {}
 
   getHeroes (): Observable<Hero[]> {
+
     return this.http.get(this.heroesUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
@@ -33,6 +34,7 @@ export class HeroService {
   }
 
   private handleError (error: Response | any) {
+    console.log("得到调用了额");
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
