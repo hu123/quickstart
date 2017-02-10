@@ -7,7 +7,7 @@ import { Hero }           from './hero';
 @Injectable()
 export class HeroService {
   // URL to web api
-  private heroesUrl = 'http://localhost:8080/hero';
+  private heroesUrl = 'http://localhost:8080/student';
 
   constructor (private http: Http) {}
 
@@ -31,8 +31,8 @@ export class HeroService {
   private extractData(res: Response) {
     let body = res.json();
     //将拿到的hero数据进行打印....
-    console.log(body);
-    return body.data || { };
+    console.log(body['name']);
+    return body;
   }
 
   private handleError (error: Response | any) {

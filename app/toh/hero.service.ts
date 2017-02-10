@@ -8,7 +8,7 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class HeroService {
-  private heroesUrl = 'localhost:8080/hero';  // URL to web API
+  private heroesUrl = 'localhost:8080/student';  // URL to web API
 
   constructor (private http: Http) {}
 

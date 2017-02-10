@@ -6,7 +6,7 @@ import {HeroService}       from './hero.service.promise';
 @Component({
   selector: 'hero-list-promise',
   moduleId: module.id,
-  templateUrl: 'hero-list.component.html',
+  templateUrl: 'hero-list.component.promise.html',
   providers: [HeroService],
   styles: ['.error {color:red;}']
 })
@@ -22,11 +22,25 @@ export class HeroListPromiseComponent implements OnInit {
     this.getHeroes();
   }
 
+  show(): void {
+    console.log("手动查看数据begin");
+    for (var i = 0; i < this.heroes.length;) {
+      console.log(this.heroes[i]);
+    }
+    console.log("手动查看数据end");
+  }
+
   getHeroes() {
     this.heroService.getHeroes()
       .then(
-        heroes => this.heroes = heroes,
+        heroes => {
+          console.log("即将抛出异常....");
+          // this.heroes[0] = heroes[0];
+
+          console.log(this.heroes);
+        },
         error => this.errorMessage = <any>error);
+
   }
 
   addHero(name: string) {

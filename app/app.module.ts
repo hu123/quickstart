@@ -13,6 +13,7 @@ import { HeroListPromiseComponent } from './toh/hero-list.component.promise';
 
 import { WikiComponent }      from './wiki/wiki.component';
 import { WikiSmartComponent } from './wiki/wiki-smart.component';
+import {StudentComponent} from "./student/student.component";
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { WikiSmartComponent } from './wiki/wiki-smart.component';
     HeroListComponent,
     HeroListPromiseComponent,
     WikiComponent,
-    WikiSmartComponent
+    WikiSmartComponent,
+    StudentComponent
   ],
   bootstrap: [ AppComponent ]
 })
