@@ -11,7 +11,7 @@ export class StudentService {
   constructor(private http: Http) {
   }
 
-  getStudent():Observable<Student> {
+  getStudent():Observable<Student[]> {
     return this.http.get(this.url)
       .map(this.extractData);
   }

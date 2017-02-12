@@ -6,7 +6,8 @@ import {Student} from "./student";
   selector: 'student',
   template: `{{title}}
          <ul >
-         <li >id:{{student.id}},name:{{student.name}}</li>
+         <!--<li >id:{{student.id}},name:{{student.name}}</li>-->
+         <li *ngFor="let aaa of students" >{{aaa.id}},{{aaa.name}}</li>
 </ul>
 `,
   providers: [StudentService],
@@ -14,7 +15,7 @@ import {Student} from "./student";
 //实现了OnInit接口以便于加载完组件就进行从服务器端抓取数据
 export class StudentComponent implements OnInit {
   title = '这是学生组件用于演示ng2从springmvc服务器端拉取数据';
-  student: Student = {id: 1, name: 'libai'};
+  students: Student[];
   errorMessage: string;
   //注入StudentService服务
   constructor(private studentService: StudentService) {
@@ -24,12 +25,24 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
     // console.log("客户端得到了什么????" + this.getStudent());
     this.getStudent();
-    console.log("还没赋值上???" + this.student['name']);
-    console.log("那错误信息有么??" + this.errorMessage);
+
   }
 
 /*
   服务器端提供的数据的格式的代码
+ package org.hl.controller;
+
+ import org.hl.entity.Student;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.CrossOrigin;
+ import org.springframework.web.bind.annotation.RequestMapping;
+ import org.springframework.web.bind.annotation.ResponseBody;
+
+ import java.util.ArrayList;
+ import java.util.List;
+
  @Controller
  public class StudentController {
 
@@ -39,14 +52,21 @@ export class StudentComponent implements OnInit {
  @RequestMapping("/hero")
  public Object getData() {
  loger.warn("得到调用....");
- return new Student();
+ List<Student> list = new ArrayList<>();
+ list.add(new Student());
+ Student student = new Student();
+ student.setName("C++同学");
+ list.add(student);
+ return list;
  }
  }
-实体类的字段是:
+
+
+ package org.hl.entity;
 
  public class Student {
  private int id = 1;
- private String name = "helloworld";
+ private String name = "Java同学";
 
  public int getId() {
  return id;
@@ -64,12 +84,18 @@ export class StudentComponent implements OnInit {
  this.name = name;
  }
  }
+
+
+
+
+
+
  */
   getStudent() {
     this.studentService.getStudent()
       .subscribe(
         //subscribe方法在ngOnInit()方法执行完毕之后才得到执行.....
-        students =>this.student = students,
+        students =>this.students = students,
         error => this.errorMessage = <any>error
       );
   }
