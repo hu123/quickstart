@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'my-app',
-  templateUrl: 'app.component.html'
+  selector: 'hero-birthday',
+  template: `<p>The hero's birthday is {{ birthday | date }}</p>`
 })
-export class AppComponent {
+export class HeroBirthdayComponent {
   birthday = new Date(1988, 3, 15); // April 15, 1988
 }
 

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'my-app',
-  templateUrl: 'app.component.html'
+  selector: 'power-booster',
+  template: `
+    <h2>Power Booster</h2>
+    <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+  `
 })
-export class AppComponent {
-  birthday = new Date(1988, 3, 15); // April 15, 1988
-}
+export class PowerBoosterComponent { }
 
 
 /*
