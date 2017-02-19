@@ -1,16 +1,19 @@
 <h1>我的Attribute Directive</h1>
 <h4>选择一个高亮的颜色</h4>
 <div>
-  <input type="radio" name="colors" (click)="color='lightgreen'">Green
   <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
-</div>
-<p [myHighlight]="color">Highlight me!</p>
+  <input type="radio" name="colors" (click)="myColor='orange'">Purple
 
-<p [myHighlight]="color" [defaultColor]="'violet'">
+</div>
+<p [helloworld]="color">Highlight me!</p>
+
+<p [helloworld]="myColor" [defaultColor]="'purple'">
   Highlight me too!
 </p>
 
+
+
+<!--<p [myDirective]="color">????</p>-->
 
 <!--
 Copyright 2016 Google Inc. All Rights Reserved.
